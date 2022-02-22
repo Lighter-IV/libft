@@ -5,26 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 21:57:18 by csangkhe          #+#    #+#             */
-/*   Updated: 2022/02/22 14:51:20 by csangkhe         ###   ########.fr       */
+/*   Created: 2022/02/22 16:41:28 by csangkhe          #+#    #+#             */
+/*   Updated: 2022/02/22 17:05:57 by csangkhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	cal_digit(int n)
+#include "libft.h"
+
+unsigned int	find_digit(int n)
 {
 	unsigned int	digit;
 
 	digit = 1;
-	if (n == -214748648)
+	if (n == -214)
 		return (10);
 	else if (n < 0)
 	{
 		n = -n;
 		digit++;
 	}
-	while (num >= 10)
+	while (n >= 10)
 	{
-		num = num /10;
+		n = n / 10;
 		digit++;
 	}
 	return (digit);
@@ -36,22 +38,24 @@ char	*ft_itoa(int n)
 	unsigned int	digit;
 	long		num;
 
-	digit = fint_digit(n);
 	num = (long) n;
-	str = (char *)malloc(sizeof(char) * (digit + 1));
+	digit = find_digit(n);
+	str = (char *) malloc(sizeof(char) * (size + 1));
 	if (str == NULL)
 		return (NULL);
 	str[digit] = '\0';
-	if (n < 0)
+	if (num < 0)
 	{
 		str[0] = '-';
 		num = -num;
 	}
-	while (num >= 0)
+	else if(num == 0)
+		str[0] = '0';
+	while (num > 0)
 	{
 		str[digit - 1] = (num % 10) + '0';
-		num = num / 10;
+		num = num /10;
 		digit--;
 	}
-	return (str);	
+	return (str);
 }

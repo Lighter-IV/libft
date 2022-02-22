@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 11:10:06 by csangkhe          #+#    #+#             */
-/*   Updated: 2022/02/22 16:11:02 by csangkhe         ###   ########.fr       */
+/*   Created: 2022/02/22 15:26:22 by csangkhe          #+#    #+#             */
+/*   Updated: 2022/02/22 15:52:46 by csangkhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if (c >= 48 && c <= 57)
-		return 1;
-	else
-		return 0;
+	size_t	index;
+
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	index = 0;
+	while (index < n)
+	{
+		((unsigned char *)dst)[index] = ((unsignedchar*)src)[index];
+		index++;
+	}
+	return (dst);
 }

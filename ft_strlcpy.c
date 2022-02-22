@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 11:10:06 by csangkhe          #+#    #+#             */
-/*   Updated: 2022/02/22 16:11:02 by csangkhe         ###   ########.fr       */
+/*   Created: 2022/02/22 15:14:46 by csangkhe          #+#    #+#             */
+/*   Updated: 2022/02/22 17:07:20 by csangkhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t maxlen)
 {
-	if (c >= 48 && c <= 57)
-		return 1;
-	else
-		return 0;
+	const size_t	srclen = ft_strlen(src);
+
+	if (srclen + 1 < maxlen)
+		ft_memcpy(dst, src, srclen + 1);
+	else if (maxlen != 0)
+	{
+		ft_memcpy(dst, src, maxlen - 1);
+		dst[maxlen - 1] = '\0';
+	}
+	return (srclen);
 }
