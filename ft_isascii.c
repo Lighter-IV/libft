@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_ascii.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 20:06:26 by csangkhe          #+#    #+#             */
-/*   Updated: 2022/03/02 23:09:11 by csangkhe         ###   ########.fr       */
+/*   Created: 2022/03/02 23:00:37 by csangkhe          #+#    #+#             */
+/*   Updated: 2022/03/02 23:02:17 by csangkhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_isascii(int c)
 {
-	size_t	index;
-
-	index = 0;
-	if (n == 0)
+	if (c >= 0 && c < 128)
+		return (1);
+	else
 		return (0);
-	while (index < n - 1 && s1[index] != '\0' && s2[index] != '\0' && s1[index] == s2[index])
-		index++;
-	return ((unsigned char)s1[index] - (unsigned char)s2[index]);
 }

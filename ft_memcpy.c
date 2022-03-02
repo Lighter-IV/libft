@@ -6,7 +6,7 @@
 /*   By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:26:22 by csangkhe          #+#    #+#             */
-/*   Updated: 2022/02/22 15:52:46 by csangkhe         ###   ########.fr       */
+/*   Updated: 2022/03/02 23:12:56 by csangkhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	index = 0;
 	while (index < n)
 	{
-		((unsigned char *)dst)[index] = ((unsignedchar*)src)[index];
+		((unsigned char *)dst)[index] = ((unsigned char*)src)[index];
 		index++;
 	}
 	return (dst);
