@@ -6,27 +6,13 @@
 /*   By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 09:41:33 by csangkhe          #+#    #+#             */
-/*   Updated: 2021/11/11 21:23:44 by csangkhe         ###   ########.fr       */
+/*   Updated: 2022/03/04 22:55:42 by csangkhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	in_charset(char c, char *charset)
-{
-	int	n;
-
-	n = 0;
-	while (charset[n])
-	{
-		if (c == charset[n])
-			return (1);
-		n++;
-	}
-	return (0);
-}
-
-char	*add_str(char *str, int len)
+char	*add_str(char const *str, int len)
 {
 	char	*split;
 	int		n;
@@ -42,22 +28,27 @@ char	*add_str(char *str, int len)
 	return (split);
 }
 
-int	count_w(char *str, char *charset)
+int	count_w(char const *s, char c)
 {
 	int	i;
 	int	n;
 
 	i = 0;
 	n = 1;
-	while (str[i])
+	if (s[0] == '\0')
+		return (0);
+	while (s[i] == c)
+		i++;
+	while (s[i] != '\0')
 	{
-		if (in_charset(str[i++], charset))
+		if (s[i] == c && s[i + 1] && s[i + 1] != c)
 			n++;
+		i++;
 	}
 	return (n);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char const *s, char c)
 {
 	char	**split;
 	int		size;
@@ -68,18 +59,16 @@ char	**ft_split(char *str, char *charset)
 	start = 0;
 	index = 0;
 	n = 0;
-	size = count_w(str, charset);
+	size = count_w(s, c);
 	split = malloc((size + 1) * sizeof(char *));
-	while (str[n])
+	while (s[n])
 	{
-		if (!in_charset(str[n], charset)
-			&& n > 0 && in_charset(str[n - 1], charset))
+		if (s[n] != c && n > 0 && s[n - 1] == c)
 			start = n;
-		if (in_charset(str[n], charset)
-			&& n > 0 && !in_charset(str[n - 1], charset))
-			split[index++] = add_str(&str[start], n - start);
-		else if (!str[n + 1] && !in_charset(str[n], charset))
-			split[index++] = add_str(&str[start], n - start + 1);
+		if (s[n] == c && n > 0 && s[n - 1] != c)
+			split[index++] = add_str(&s[start], n - start);
+		else if (!s[n + 1] && s[n] != c)
+			split[index++] = add_str(&s[start], n - start + 1);
 		n++;
 	}
 	split[index] = NULL;

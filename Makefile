@@ -6,7 +6,7 @@
 #    By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 10:08:39 by csangkhe          #+#    #+#              #
-#    Updated: 2022/03/02 23:27:30 by csangkhe         ###   ########.fr        #
+#    Updated: 2022/03/03 16:57:17 by csangkhe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,16 @@ SRCS	= ft_isalpha.c \
 	  ft_strrchr.c \
 	  ft_atoi.c \
 	  ft_calloc.c \
-	  ft_strdup.c
-OBJS	= ${SRCS:.c=.o}
+	  ft_strdup.c \
+	  ft_substr.c \
+	  ft_strjoin.c \
+	  ft_split.c \
+	  ft_itoa.c \
+	  ft_putchar_fd.c \
+	  ft_putstr_fd.c \
+	  ft_putendl_fd.c \
+	  ft_putnbr_fd.c
+OBJS	= ${SRCS:.c=.o}	  
 
 %.o: %.c
 	gcc ${FLAGS} -c $< -o $@
@@ -53,4 +61,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re 

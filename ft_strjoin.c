@@ -6,7 +6,7 @@
 /*   By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 20:24:02 by csangkhe          #+#    #+#             */
-/*   Updated: 2022/02/23 20:59:58 by csangkhe         ###   ########.fr       */
+/*   Updated: 2022/03/04 10:46:51 by csangkhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
-	size_t		len;
-	size_t		index;
+	size_t	len;
+	size_t	index;
 
 	index = 0;
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;

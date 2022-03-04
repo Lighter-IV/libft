@@ -6,12 +6,12 @@
 /*   By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 13:51:57 by csangkhe          #+#    #+#             */
-/*   Updated: 2022/03/02 14:03:19 by csangkhe         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:17:27 by csangkhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-#define LIBFT_H
+# define LIBFT_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -19,7 +19,7 @@
 typedef struct s_list
 {
 	void			*content;
-	struct	s_list	*next;
+	struct s_list	*next;
 }	t_list;
 
 void				ft_bzero(void *s, size_t n);
@@ -52,7 +52,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *haystack, const char *needle,
-								size_t len);
+						size_t len);
 char				*ft_strdup(const char *s1);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
