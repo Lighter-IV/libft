@@ -6,7 +6,7 @@
 #    By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 10:08:39 by csangkhe          #+#    #+#              #
-#    Updated: 2022/03/10 21:16:56 by csangkhe         ###   ########.fr        #
+#    Updated: 2022/03/10 21:57:45 by csangkhe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ clean:
 	rm -f ${OBJS} ${OBJS_B}
 
 fclean: clean
-	rm -f ${NAME}
+	rm -f $(NAME)
 
 re: fclean all
 
