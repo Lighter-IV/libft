@@ -6,11 +6,11 @@
 #    By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 10:08:39 by csangkhe          #+#    #+#              #
-#    Updated: 2022/03/10 21:57:45 by csangkhe         ###   ########.fr        #
+#    Updated: 2022/03/10 22:08:02 by csangkhe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS	= -Wall -Werror -Werror
+FLAGS	= -Wall -Wextra -Werror
 NAME	= libft.a
 SRCS	= ft_isalpha.c \
 	  ft_isdigit.c \
