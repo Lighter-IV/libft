@@ -6,7 +6,7 @@
 #    By: csangkhe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 10:08:39 by csangkhe          #+#    #+#              #
-#    Updated: 2022/03/03 16:57:17 by csangkhe         ###   ########.fr        #
+#    Updated: 2022/03/10 21:16:56 by csangkhe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,24 @@ SRCS	= ft_isalpha.c \
 	  ft_putchar_fd.c \
 	  ft_putstr_fd.c \
 	  ft_putendl_fd.c \
-	  ft_putnbr_fd.c
+	  ft_putnbr_fd.c \
+	  ft_strtrim.c \
+	  ft_striteri.c \
+	  ft_strmapi.c
+
+SRCS_B	= ft_lstnew.c \
+	  ft_lstsize.c \
+	  ft_lstlast.c \
+	  ft_lstdelone.c \
+	  ft_lstadd_front.c \
+	  ft_lstadd_back.c \
+	  ft_lstclear.c \
+	  ft_lstiter.c \
+	  ft_lstmap.c
+
 OBJS	= ${SRCS:.c=.o}	  
+
+OBJS_B	= ${SRCS_B:.c=.o}
 
 %.o: %.c
 	gcc ${FLAGS} -c $< -o $@
@@ -51,14 +67,17 @@ OBJS	= ${SRCS:.c=.o}
 ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS}
 
+bonus:	${OBJS_B}
+	ar rcs ${NAME} ${OBJS_B}
+
 all: ${NAME}
 
 clean:
-	rm -f ${OBJS}
+	rm -f ${OBJS} ${OBJS_B}
 
 fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: bonus all clean fclean re 
